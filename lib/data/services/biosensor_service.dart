@@ -177,6 +177,11 @@ class BiosensorService {
     return points;
   }
 
+  /// Force an immediate status check (bypass timer)
+  Future<void> forceFetchStatus() async {
+    await _blynkService.forceFetchStatus();
+  }
+
   void stopSimulation() {
     _blynkService.stopPolling();
     _stopDataGeneration();
